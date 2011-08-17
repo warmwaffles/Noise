@@ -1,7 +1,7 @@
 /**
  * <p>A Perlin noise generation utility. Construct the PerlinNoise object with
  * the specified parameters and make a call to the {@link #getHeight(double, double)}
- * method. It will return a number between -1 and 1.</p>
+ * method.</p>
  * 
  * <p>This class does not make use of the <i>Random</i> class.</p>
  * 
@@ -25,9 +25,11 @@ public class PerlinNoise {
 	
 	/**
 	 * Pass in the x and y coordinates that you desire
+   *
 	 * @param x
 	 * @param y
-	 * @return
+	 * @return The height of the (x,y) coordinates multiplied by the
+   * amplitude
 	 */
 	public double getHeight(double x, double y) {
 		return amplitude * total(x,y);
