@@ -15,6 +15,14 @@ public class PerlinNoise {
 	private double persistence;
 	private int    seed;
 
+	/**
+	 * 
+	 * @param seed
+	 * @param persistence
+	 * @param frequency
+	 * @param amplitude
+	 * @param octaves
+	 */
 	public PerlinNoise(int seed, double persistence, double frequency, double amplitude, int octaves) {
 		set(seed, persistence, frequency, amplitude, octaves);
 	}
