@@ -1,20 +1,18 @@
 # Overview
-
-I've been crawling the web high and low to find decent implementations of
-Perlin Noise generations in Java or any other language for that matter.
+The perlin noise generators offered here are built to be as small and compact as
+possible, while being versatile.
 
 # Usage
 
 ## Java
 
-Here is a simple implementation in java of how to construct the PerlinNoise
-generator.
+### Prime
+This is the perlin noise generator that uses prime numbers. It has the lowest
+overhead costs. It doesn't use a random number generator. Though the current
+implementation only uses two axis.
 
 ```java
-int x = 10;
-int y = 20;
-
-PerlinNoise p = new PerlinNoise(123, 1, 1, 1, 1);
+PerlinNoise p = new PerlinNoise(seed, persistence, frequency, amplitude, octaves);
 double height = p.getHeight(x,y);
 ```
 
@@ -22,7 +20,7 @@ Here is how you can modify the generator. Continue from example above.
 
 ```java
 // Same parameters as the constructor
-p.set(543, 2, 3, 4, 5);
+p.set(seed, persistence, frequency, amplitude, octaves);
 
 // Or set them individually
 p.setAmplitude(3);
@@ -31,3 +29,24 @@ p.setOctaves(2);
 p.setSeed(9001);
 // it can be any value (^_^)
 ```
+
+### Riven
+With [Riven's Implementation](http://riven8192.blogspot.com/2009/08/perlinnoise.html)
+I have made it more object oriented.
+
+```java
+PerlinNoise p = new PerlinNoise(254);
+
+p.noise(x,y,z);
+```
+
+This version sports a couple features such as:
+
+```java
+p.smoothNoise(x, y, z, octaves);
+p.turbulentNoise(x, y, z, octaves);
+p.offset(xOffset, yOffset);
+```
+
+### Ken Perlin
+This version is Ken Perlin's implementation of Perlin's algorithm...go figure.
