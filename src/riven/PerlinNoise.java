@@ -150,8 +150,7 @@ public class PerlinNoise {
 	 */
 	private float noise(float x, float y, float z, int octave) {
 		float p = pow[octave];
-		return this.noise(x * p + this.xo, y * p + this.yo, z * p + this.zo)
-				/ p;
+		return this.noise(x * p + this.xo, y * p + this.yo, z * p + this.zo) / p;
 	}
 
 	/**
